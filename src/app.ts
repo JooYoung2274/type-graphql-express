@@ -8,7 +8,7 @@ app.use(express.json());
 import 'reflect-metadata';
 import { ApolloServer } from 'apollo-server-express';
 import { connect } from './schemas/index';
-import { ObjectType, Field, Int, ID, buildSchema, Resolver, Query } from 'type-graphql';
+import { ObjectType, Field, Int, ID, buildSchema, Resolver, Query, Root, Args, Arg } from 'type-graphql';
 import { Service, Container } from 'typedi';
 import { Users } from './schemas/user';
 
@@ -16,8 +16,8 @@ connect();
 
 @Service()
 class UserRepository {
-    async getUsers() {
-        const users = await Users.find({});
+    async getUsers(userId: string) {
+        const users = await Users.find({ where: { userId: userId } });
         console.log('111');
         return users;
     }
@@ -25,32 +25,35 @@ class UserRepository {
 
 @ObjectType()
 class User {
-    @Field(() => ID)
+    @Field(() => ID, { nullable: true })
     userId: string;
-    @Field()
+    @Field({ nullable: true })
     name: string;
     @Field({ nullable: true })
     email: string;
-    @Field()
+    @Field({ nullable: true })
     department?: string;
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
     userRank?: number;
-    @Field()
+    @Field({ nullable: true })
     joinDate: string;
-    @Field()
+    @Field({ nullable: true })
     company: string;
-    @Field()
+    @Field({ nullable: true })
     createdAt: string;
+
+    // @Field(() => [User])
+    // getUsers: (userId: string) => User;
 }
 
 @Service()
-@Resolver()
+@Resolver(User)
 class UserResolver {
     constructor(private dependencies: UserRepository) {}
 
-    @Query(() => [User])
-    async getUsers() {
-        const rows = await this.dependencies.getUsers();
+    @Query(returns => [User])
+    async getUsers(@Arg('userId') userId: string) {
+        const rows = await this.dependencies.getUsers(userId);
         return rows;
     }
 }
