@@ -2,7 +2,7 @@ import { Arg, Mutation, Query, Resolver } from 'type-graphql';
 import { Service } from 'typedi';
 import { PostUserDto } from './dto/PostUserDto';
 import { UserRepository } from './User.repository';
-import { User } from './User.typeDef';
+import { User } from '../schemas/User.entity';
 
 @Service()
 @Resolver(User)

@@ -1,5 +1,6 @@
 import { Service } from 'typedi';
-import { Users } from '../schemas/userTypegoose';
+// import { Users } from '../schemas/userTypegoose';
+import { Users } from '../schemas/User.entity';
 import { PostUserDto } from './dto/PostUserDto';
 
 @Service()
