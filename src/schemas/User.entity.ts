@@ -39,4 +39,8 @@ export class User {
     // getUsers: (userId: string) => User;
 }
 
-export const Users = getModelForClass(User);
+export const Users = getModelForClass(User, {
+    schemaOptions: {
+        versionKey: false,
+    },
+});

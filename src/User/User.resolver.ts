@@ -9,7 +9,7 @@ import { User } from '../schemas/User.entity';
 export class UserResolver {
     constructor(private dependencies: UserRepository) {}
 
-    @Query(returns => [User])
+    @Query(() => [User])
     async getUsers(@Arg('userId') userId: string) {
         const rows = await this.dependencies.getUsers(userId);
         console.log(userId);
