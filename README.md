@@ -28,4 +28,4 @@
 -> Nest 처럼 도메인별로 폴더나눠서 작성.
 -> 목표로 한 세팅은 완료.
 
-[링크](https://jooyoung2274.github.io//Express-+-Graphql-%EC%A[링크](https://jooyoung2274.github.io//Express-+-Graphq[링크](https://jooyoung2274.github.io//Express-+-Graphql-%EC%A2%80-%EB%8D%94-%EA%B5%AC%EC%A1%B0%EC%A0%81%EC%9C%BC%EB%A1%9C-%EC%A7%9C%EA%B8%B0-(+-Type-graphql,-Typegoose,-Typedi)/)
+[링크](https://jooyoung2274.github.io//Express-+-Graphql-%EC%A2%80-%EB%8D%94-%EA%B5%AC%EC%A1%B0%EC%A0%81%EC%9C%BC%EB%A1%9C-%EC%A7%9C%EA%B8%B0-(+-Type-graphql,-Typegoose,-Typedi)/)
